@@ -1,0 +1,73 @@
+/* ==========================================================================
+   StudyPack — reading workspace notes column (Frontend_plan.md section 7)
+   Component-specific rules only; shared tokens/primitives live in styles.css.
+   ========================================================================== */
+
+.study-pack {
+  display: flex;
+  flex-direction: column;
+  max-width: 72ch;
+}
+
+.study-pack__concept {
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 96px;
+  border-radius: var(--radius);
+}
+
+.study-pack__concept:first-child {
+  padding-top: 0;
+}
+
+.study-pack__concept:last-child {
+  border-bottom: none;
+}
+
+.study-pack__concept:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Restrained, static emphasis for the Revisit/outline navigation target.
+   A fade-out animation was considered, but the global reduced-motion rule
+   in styles.css zeros animation-duration with !important, which combined
+   with a "forwards" fill would jump straight to the fully-faded (invisible)
+   end state and defeat the emphasis entirely for reduced-motion users. A
+   steady tint keeps the signal legible for everyone and matches the plan's
+   "or a subtle static tint" fallback. */
+.study-pack__concept--active {
+  margin-inline: calc(-1 * var(--space-4));
+  padding-inline: var(--space-4);
+  background: var(--accent-tint);
+}
+
+.study-pack__concept-title {
+  font-size: var(--size-concept);
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 var(--space-4);
+}
+
+.study-pack__bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.study-pack__bullet {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.study-pack__bullet-text {
+  font-size: var(--size-body);
+  line-height: 1.65;
+  color: var(--text);
+}

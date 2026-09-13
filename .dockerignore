@@ -1,0 +1,13 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+.git
+*.log
+tests
+scripts
+Frontend_plan.md
+PLAN.md
+IDEA.md
+POST_HACKATHON.md
